@@ -35,9 +35,9 @@
     <div class="w3-container w3-display-middle">
         <div class="w3-card-4">
             <header class="w3-container w3-center red-color with-logo">
-                <h1>מחולל מחלקת חדשות</h1>
+                <h1>בונה תוכן</h1>
                 <p class="w3-large">
-                    ברוכים הבאים למחולל החדש של מחלקת חדשות!
+                    ברוכים הבאים למחולל החדש של צוות תוכן!
                     </br>
                     כל מה שתצטרכו זה למלא את הפרטים למטה,
                     </br>
@@ -53,9 +53,11 @@
                 </br>
                 <textarea class="w3-input" id="output" rows="10" cols="80" dir="ltr" readonly></textarea>
                 </br>
-                <button class="w3-button w3-block red-color" id="buildBtn">יצירת מבזק</button>
+                <button class="w3-button w3-block red-color" id="buildBtn">בנה</button>
                 </br>
                 <button class="w3-button w3-block red-color" id="copyBtn" disabled>העתק</button>
+                </br>
+                <button class="w3-button w3-block red-color" id="formatBtn">אפס</button>
             </div>
         </div>
     </div>
@@ -75,6 +77,10 @@
         $('#copyBtn').click(function() {
             $('#output').select();
             document.execCommand("copy");
+        });
+
+        $('#formatBtn').click(function() {
+            $('#output, #title, #content, #url').val('');
         });
     });
     </script>
