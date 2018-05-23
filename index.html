@@ -2,44 +2,75 @@
 <html>
 
 <head>
-    <title>Hadashot</title>
+    <title>Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://amitinvolved.github.io/Hadashot/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Alef" rel="stylesheet">
+    <style type="text/css">
+    * {
+        font-family: 'Alef', sans-serif;
+    }
+
+    .red-color {
+        background: #d26767 !important;
+        color: white;
+    }
+
+    input:focus,
+    textarea:focus {
+        outline: none !important;
+        border-color: #d26767;
+    }
+
+    .with-logo {
+        background-image: url('logo.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+    }
+    </style>
 </head>
 
 <body dir="rtl">
-    <center><img src="https://profile.fcdn.co.il/sz/1200x-/images/0__05ab3b4f3a2f49.jpg" width="250" height="270">
     <div class="w3-container w3-display-middle">
         <div class="w3-card-4">
-            <header class="w3-container w3-indigo">
-                <h1>המחולל של מחלקת חדשות</h1>
+            <header class="w3-container w3-center red-color with-logo">
+                <h1>בונה תוכן</h1>
+                <p class="w3-large">
+                    ברוכים הבאים למחולל החדש של צוות תוכן!
+                    </br>
+                    כל מה שתצטרכו זה למלא את הפרטים למטה,
+                    </br>
+                    והכלי ידאג לספק לכם קוד אותו תדביקו באשכול החדש שאתם יוצרים! שנתחיל?
+                </p>
             </header>
             <div class="w3-container w3-padding-16">
                 <input type="text" class="w3-input" id="title" placeholder="כותרת">
-                
+                </br>
                 <textarea class="w3-input" id="content" rows="6" cols="80" placeholder="תוכן"></textarea>
-                
+                </br>
                 <input type="text" class="w3-input" id="url" placeholder="קישור מקור">
-                
+                </br>
                 <textarea class="w3-input" id="output" rows="10" cols="80" dir="ltr" readonly></textarea>
-                
-                <button class="w3-button w3-block w3-indigo" id="buildBtn">יצירת מבזק</button>
+                </br>
+                <button class="w3-button w3-block red-color" id="buildBtn">בנה</button>
+                </br>
+                <button class="w3-button w3-block red-color" id="copyBtn" disabled>העתק</button>
             </div>
         </div>
     </div>
     <script type="text/javascript">
-	const build = (title, content, srcUrl) => `
-[CENTER][U][B][COLOR=#d26767][SIZE=4][FONT=open sans hebrew]${title}
-[/FONT][/SIZE][/COLOR][/B][/U]
-[FONT=open sans hebrew]${content}
+    const build = (title, content, srcUrl) => `[CENTER][U][B][COLOR=#d26767][SIZE=4][FONT=open sans hebrew]${title}[/FONT][/SIZE][/COLOR][/B][/U][FONT=open sans hebrew]${content}[B][URL="${srcUrl}"][COLOR=#d26767]מקור[/COLOR][/URL][/B][/FONT][/CENTER]`.trim();
 
-[B][URL="${srcUrl}"][COLOR=#d26767]מקור[/COLOR][/URL][/B][/FONT][/CENTER]
-`.trim();
-	
     $(document).ready(function() {
         $('#buildBtn').click(function() {
             $('#output').val(build($('#title').val(), $('#content').val(), $('#url').val()));
+            $('#copyBtn').removeAttr('disabled');
+        });
+
+        $('#copyBtn').click(function() {
+            $('#output').select();
+            document.execCommand("copy");
         });
     });
     </script>
