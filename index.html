@@ -60,12 +60,11 @@
         </div>
     </div>
     <script type="text/javascript">
-    const build = (title, content, srcUrl) => `
-[CENTER][U][B][COLOR=#d26767][SIZE=4][FONT=open sans hebrew]${title}
+    const build = (title, content, srcUrl) => `[CENTER][U][B][COLOR=#d26767][SIZE=4][FONT=open sans hebrew]${title}
 
 [/FONT][/SIZE][/COLOR][/B][/U][FONT=open sans hebrew]${content}
-[B][URL="${srcUrl}"][COLOR=#d26767]מקור[/COLOR][/URL][/B][/FONT][/CENTER]
-`.trim();
+
+[B][URL="${srcUrl}"][COLOR=#d26767]מקור[/COLOR][/URL][/B][/FONT][/CENTER]`.trim();
 
     $(document).ready(function() {
         $('#buildBtn').click(function() {
